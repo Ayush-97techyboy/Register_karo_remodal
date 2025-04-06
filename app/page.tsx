@@ -361,7 +361,7 @@ function ContactInfo() {
 type ContactInfoItemProps = {
   icon: React.ReactNode;
   title: string;
-  content: string;
+  content: React.ReactNode; 
 };
 
 function ContactInfoItem({ icon, title, content }: ContactInfoItemProps) {
