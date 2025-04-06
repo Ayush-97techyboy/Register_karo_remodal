@@ -410,10 +410,11 @@ function TestimonialsHeader() {
 }
 
 type Testimonial = {
+  id: number;
   name: string;
-  message: string;
-  role?: string;
-  image?: string;
+  image: string;
+  rating: number;
+  text: string; 
 };
 
 type TestimonialSliderProps = {
@@ -423,11 +424,11 @@ type TestimonialSliderProps = {
 function TestimonialSlider({ testimonials }: TestimonialSliderProps) {
   return (
     <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8">
-      {testimonials.map((testimonial, index) => (
-        <div key={index} className="mb-4">
-          <p className="text-gray-800 italic">"{testimonial.message}"</p>
+      {testimonials.map((testimonial) => (
+        <div key={testimonial.id} className="mb-4">
+          <p className="text-gray-800 italic">"{testimonial.text}"</p>
           <p className="text-sm mt-2 font-semibold">
-            — {testimonial.name}, {testimonial.role}
+            — {testimonial.name}
           </p>
         </div>
       ))}
