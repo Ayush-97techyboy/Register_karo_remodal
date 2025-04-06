@@ -345,13 +345,32 @@ function ContactInfo() {
   );
 }
 
-function ContactInfoItem({ icon, title, content }) {
+// function ContactInfoItem({ icon, title, content }) {
+//   return (
+//     <div className="flex items-start gap-4">
+//       {icon}
+//       <div>
+//         <h3 className="font-semibold text-lg mb-2">{title}</h3>
+//         <p className="text-gray-600">{content}</p>
+//       </div>
+//     </div>
+//   );
+// }
+
+
+type ContactInfoItemProps = {
+  icon: React.ReactNode;
+  title: string;
+  content: string;
+};
+
+function ContactInfoItem({ icon, title, content }: ContactInfoItemProps) {
   return (
     <div className="flex items-start gap-4">
       {icon}
       <div>
-        <h3 className="font-semibold text-lg mb-2">{title}</h3>
-        <p className="text-gray-600">{content}</p>
+        <h4 className="font-bold">{title}</h4>
+        <p>{content}</p>
       </div>
     </div>
   );
