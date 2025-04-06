@@ -411,8 +411,8 @@ function TestimonialsHeader() {
 
 type Testimonial = {
   name: string;
-  role?: string;
   message: string;
+  role?: string;
   image?: string;
 };
 
@@ -420,37 +420,15 @@ type TestimonialSliderProps = {
   testimonials: Testimonial[];
 };
 
-function TestimonialSlider({ testimonials }) {
+function TestimonialSlider({ testimonials }: TestimonialSliderProps) {
   return (
     <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8">
-      {testimonials.map((testimonial) => (
-        <div key={testimonial.id}>
-          <div className="flex items-center gap-4 mb-4">
-            <Image
-              src={testimonial.image}
-              alt={testimonial.name}
-              width={48}
-              height={48}
-              className="rounded-full"
-            />
-            <div>
-              <h4 className="font-semibold">{testimonial.name}</h4>
-              <div className="flex items-center gap-1">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <span key={i} className="text-orange-500">★</span>
-                ))}
-              </div>
-            </div>
-          </div>
-          <p className="text-gray-600">{testimonial.text}</p>
-          <div className="flex justify-between items-center mt-6">
-            <Button variant="outline" size="icon">
-              <ChevronLeft className="h-4 w-4" />
-            </Button>
-            <Button variant="outline" size="icon">
-              <ChevronRight className="h-4 w-4" />
-            </Button>
-          </div>
+      {testimonials.map((testimonial, index) => (
+        <div key={index} className="mb-4">
+          <p className="text-gray-800 italic">"{testimonial.message}"</p>
+          <p className="text-sm mt-2 font-semibold">
+            — {testimonial.name}, {testimonial.role}
+          </p>
         </div>
       ))}
     </div>
