@@ -1,11 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+// import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { ArrowRight, CheckCircle, Clock, MapPin, Mail, Phone, ChevronLeft, ChevronRight, Facebook, Instagram, Twitter, Linkedin, Youtube } from "lucide-react";
 import Image from "next/image";
+import { Card, CardContent } from '@/components/ui/card';
+
 
 const testimonials = [
   {
@@ -436,23 +438,50 @@ function TestimonialSlider({ testimonials }: TestimonialSliderProps) {
   );
 }
 
-function BlogCard({ title, image, date, author }) {
+// function BlogCard({ title, image, date, author }) {
+//   return (
+//     <Card className="overflow-hidden">
+//       <Image
+//         src={image}
+//         alt={title}
+//         width={400}
+//         height={200}
+//         className="w-full h-48 object-cover"
+//       />
+//       <div className="p-6">
+//         <h3 className="font-semibold text-lg mb-2">{title}</h3>
+//         <div className="text-sm text-gray-600">
+//           <p>{date}</p>
+//           <p>Written by {author}</p>
+//         </div>
+//       </div>
+//     </Card>
+//   );
+// }
+
+type BlogCardProps = {
+  title: string;
+  image: string;
+  date: string;
+  author: string;
+};
+
+function BlogCard({ title, image, date, author }: BlogCardProps) {
   return (
     <Card className="overflow-hidden">
       <Image
         src={image}
         alt={title}
         width={400}
-        height={200}
+        height={250}
         className="w-full h-48 object-cover"
       />
-      <div className="p-6">
-        <h3 className="font-semibold text-lg mb-2">{title}</h3>
-        <div className="text-sm text-gray-600">
-          <p>{date}</p>
-          <p>Written by {author}</p>
-        </div>
-      </div>
+      <CardContent className="p-4">
+        <h3 className="font-bold text-xl mb-2">{title}</h3>
+        <p className="text-sm text-gray-500">
+          {date} · by {author}
+        </p>
+      </CardContent>
     </Card>
   );
 }
