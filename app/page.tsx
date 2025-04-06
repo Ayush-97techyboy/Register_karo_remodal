@@ -489,9 +489,9 @@ function PartnerLogo({ name }: PartnerLogoProps) {
 type FooterColumnProps = {
   title: string;
   links: string[];
-}; 
+};
 
-function FooterColumn({ title, links }) {
+function FooterColumn({ title, links }: FooterColumnProps) {
   return (
     <div>
       <h4 className="text-orange-500 font-semibold mb-4">{title}</h4>
