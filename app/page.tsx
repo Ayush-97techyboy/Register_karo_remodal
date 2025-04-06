@@ -409,6 +409,17 @@ function TestimonialsHeader() {
   );
 }
 
+type Testimonial = {
+  name: string;
+  role?: string;
+  message: string;
+  image?: string;
+};
+
+type TestimonialSliderProps = {
+  testimonials: Testimonial[];
+};
+
 function TestimonialSlider({ testimonials }) {
   return (
     <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8">
