@@ -1,7 +1,7 @@
 "use client";
 
+import React from 'react';
 import { Button } from "@/components/ui/button";
-// import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { ArrowRight, CheckCircle, Clock, MapPin, Mail, Phone, ChevronLeft, ChevronRight, Facebook, Instagram, Twitter, Linkedin, Youtube } from "lucide-react";
@@ -78,7 +78,7 @@ const footerLinks = {
 export default function Home() {
   return (
     <main className="min-h-screen">
-      {/* Navigation */}
+      /* Navigation */
       <nav className="fixed top-0 left-0 right-0 bg-white z-50 border-b">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="text-xl font-bold text-primary">RegisterKaro</div>
@@ -347,19 +347,6 @@ function ContactInfo() {
   );
 }
 
-// function ContactInfoItem({ icon, title, content }) {
-//   return (
-//     <div className="flex items-start gap-4">
-//       {icon}
-//       <div>
-//         <h3 className="font-semibold text-lg mb-2">{title}</h3>
-//         <p className="text-gray-600">{content}</p>
-//       </div>
-//     </div>
-//   );
-// }
-
-
 type ContactInfoItemProps = {
   icon: React.ReactNode;
   title: string;
@@ -438,27 +425,6 @@ function TestimonialSlider({ testimonials }: TestimonialSliderProps) {
   );
 }
 
-// function BlogCard({ title, image, date, author }) {
-//   return (
-//     <Card className="overflow-hidden">
-//       <Image
-//         src={image}
-//         alt={title}
-//         width={400}
-//         height={200}
-//         className="w-full h-48 object-cover"
-//       />
-//       <div className="p-6">
-//         <h3 className="font-semibold text-lg mb-2">{title}</h3>
-//         <div className="text-sm text-gray-600">
-//           <p>{date}</p>
-//           <p>Written by {author}</p>
-//         </div>
-//       </div>
-//     </Card>
-//   );
-// }
-
 type BlogCardProps = {
   title: string;
   image: string;
@@ -502,11 +468,15 @@ function PartnersHeader() {
   );
 }
 
-function PartnerLogo({ name }) {
+type PartnerLogoProps = {
+  name: string;
+};
+
+function PartnerLogo({ name }: PartnerLogoProps) {
   return (
     <div className="w-24 h-24 bg-white rounded-lg shadow-md flex items-center justify-center">
       <Image
-        src={`https://logo.clearbit.com/${name.toLowerCase()}.com`}
+        src={`/partners/${name}.png`}
         alt={name}
         width={64}
         height={64}
@@ -515,6 +485,11 @@ function PartnerLogo({ name }) {
     </div>
   );
 }
+
+type FooterColumnProps = {
+  title: string;
+  links: string[];
+}; 
 
 function FooterColumn({ title, links }) {
   return (
